@@ -27,7 +27,7 @@ class LoginController {
         if (data) {
           const token = jwt.sign({ name: req.body.username }, "fiat");
           res.cookie("token", token);
-        res.redirect('/');
+        res.redirect('/selfBlog');
         } else {
           res.json("that bai");
         }
