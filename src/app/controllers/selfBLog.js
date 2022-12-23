@@ -1,4 +1,4 @@
-const blogs = require("../model/product.model");
+const user = require("../model/user.model");
 const jwt = require("jsonwebtoken");
 const Cookies = require("cookies-js");
 class SelfBlogController {
@@ -6,10 +6,18 @@ class SelfBlogController {
     let LoginToken = req.cookies.token;
 
     let decoded = jwt.verify(LoginToken, "fiat");
+    console.log(decoded);
     if (decoded) {
-      res.render("selfBlog");
+      user
+        .findOne({ username: decoded.name })
+        .then((us) => {
+          us = us ? us.toObject() : us;
+          console.log(us);
+          res.render("selfBlog",{user: us});
+        })
+        .catch((err) => console.log("err"));
     } else {
-      res.json("dang nhap di ");
+      res.render("/login");
     }
   }
 }

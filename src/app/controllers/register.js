@@ -1,36 +1,31 @@
-const multer = require("multer");
-const User=require('../model/user.model');
-var storage = multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, "./upload");
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.originalname);
-  },
-});
-
-
-var upload = multer({ storage: storage }).single("imgFile");
+const User = require("../model/user.model");
 
 class Resister {
   index(req, res, next) {
     res.render("register");
   }
   load(req, res, next) {
- 
-    upload(req, res, function (err) {
-      if (err) {
-       console.log("khong quan trong")
-      } else {
-        console.log("khong quan trong")
-      }
+    const NewUser = new User({
+      username: req.body.gmail, // String is shorthand for {type: String}
+      password: req.body.password,
+
+      age: req.body.age,
+      post: [],
+      gmail: req.body.gmail,
+      avatar: req.file.originalname,
+      realName: req.body.realName,
+      Role: "user",
     });
-   res.json(req.body);
-    const NewUser= new User({
 
-
-    })
-
+    NewUser.save();
+    
+    res.redirect("/")
   }
+  add(req, res, next) {
+    res.json(req.body);
+  }
+  // const NewUser= new User({
+
+  // })
 }
 module.exports = new Resister();

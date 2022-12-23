@@ -12,7 +12,8 @@ const UserSchema = new Schema({
   gmail:String ,
   avatar:String,
   realName:String,
-  Role:String
+  Role:String,
+  slug: {type:String,slug:'username'},
 
 
 });

@@ -5,6 +5,7 @@ const SelfRouter = require("./seflBlog");
 const Resister = require("./register");
 const Blogs = require("../app/model/product.model");
 const blogs = require("../app/controllers/blogs");
+const UserRouter=require("./user");
 function Route(app) {
   app.get("/", (req, res) => {
     const q = Blogs.find()
@@ -20,5 +21,6 @@ function Route(app) {
   app.use("/blogs", BlogsRouter);
   app.use("/create", AddRouter);
   app.use("/login", LoginRouter);
+  app.use("/user",UserRouter);
 }
 module.exports = Route;

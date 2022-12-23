@@ -15,31 +15,32 @@ class LoginController {
     res.redirect("/");
   }
   login(req, res, next) {
-    //     const token = jwt.sign({ name: req.body.username }, 'fiat');
-    //     var decoded = jwt.verify(token, 'fiat');
-    // console.log(decoded.name) // bar
-  //   user
-  //     .findOne({
-  //       username: req.body.username,
-  //     })
-  //     .then((data) => {
-  //       if (data) {
-  //         if (data.password === req.body.password) {
-  //           const token = jwt.sign(
-  //             { name: req.body.username, password: req.body.password },
-  //             "fiat"
-  //           );
-  //           res.cookie("token", token);
-  //           res.redirect("/selfBlog");
-  //         } else {
-  //           res.redirect("/login", { err:{err: "wrong password" }});
-  //         }
-  //       } else {
-  //         res.redirect("/login", { err:{err: "wrong user name"} });
-  //       }
-  //     })
-  //     .catch((err) => console.log(err));
-   res.json(req.body); 
+        const token = jwt.sign({ name: req.body.username }, 'fiat');
+        var decoded = jwt.verify(token, 'fiat');
+    console.log(decoded.name) // bar
+    user
+      .findOne({
+        username: req.body.username,
+      })
+      .then((data) => {
+        if (data) {
+          if (data.password === req.body.password) {
+            const token = jwt.sign(
+              { name: req.body.username, password: req.body.password },
+              "fiat"
+            );
+            res.cookie("token", token);
+            const newDr="/selfBlog";
+            res.redirect(newDr);
+          } else {
+            res.redirect("/login");
+          }
+        } else {
+          res.redirect("/login");
+        }
+      })
+      .catch((err) => console.log(err));
+
 }
 }
 module.exports = new LoginController();
