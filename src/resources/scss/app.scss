@@ -1,10 +1,19 @@
-.container {
-  width: 20%;
-  height: 40%;
-  border: 1px;
-  border-color: black;
-}
-body{
-  margin:auto;
+
+.slider{
+  width: 500px;
+  height: 300px;
   background-color: red;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  // aspect-ratio: 16/9;
+  // overflow-x: auto;
+  // scroll-snap-type: x mandatory;
+  // scroll-behavior: smooth;
+
+}
+.slider img{
+  width: 500px;
+  height: 300px;
+
 }

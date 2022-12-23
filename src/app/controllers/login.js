@@ -18,21 +18,28 @@ class LoginController {
     //     const token = jwt.sign({ name: req.body.username }, 'fiat');
     //     var decoded = jwt.verify(token, 'fiat');
     // console.log(decoded.name) // bar
-    user
-      .findOne({
-        username: req.body.username,
-        password: req.body.password,
-      })
-      .then((data) => {
-        if (data) {
-          const token = jwt.sign({ name: req.body.username }, "fiat");
-          res.cookie("token", token);
-        res.redirect('/selfBlog');
-        } else {
-          res.json("that bai");
-        }
-      })
-      .catch((err) => console.log(err));
-  }
+  //   user
+  //     .findOne({
+  //       username: req.body.username,
+  //     })
+  //     .then((data) => {
+  //       if (data) {
+  //         if (data.password === req.body.password) {
+  //           const token = jwt.sign(
+  //             { name: req.body.username, password: req.body.password },
+  //             "fiat"
+  //           );
+  //           res.cookie("token", token);
+  //           res.redirect("/selfBlog");
+  //         } else {
+  //           res.redirect("/login", { err:{err: "wrong password" }});
+  //         }
+  //       } else {
+  //         res.redirect("/login", { err:{err: "wrong user name"} });
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+   res.json(req.body); 
+}
 }
 module.exports = new LoginController();

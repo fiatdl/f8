@@ -5,9 +5,10 @@ const engine = require("express-handlebars");
 const db = require("./config/db");
 const Route = require("./routes/index");
 const port = 3000;
+
 const app = express();
 const bodyParser = require("body-parser");
-var cookieParser = require('cookie-parser');
+var cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
 app.use(morgan("combined"));
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
-``
+``;
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());
 
