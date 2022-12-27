@@ -6,10 +6,7 @@ const User = require("../model/user.model");
 
 class HomeController {
   index(req, res, next) {
-    let LoginToken = req.cookies.token;
-    let decoded = jwt.verify(LoginToken, "fiat");
-    var UserData;
-
+  
     Blogs.find()
       .limit(10)
       .then((data) => {
