@@ -1,13 +1,19 @@
 <div class="container" >
+{{#if love}}
+<h1>duoc r ndsaha</h1>
+{{/if}}
+
 
 {{#each blogs}}
 <div class="card" style="width: 18rem;">
-  <img src={{this.src}} class="card-img-top" alt="...">
+
+  <img src="/img/post/{{this.src}}"" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text">{{this.author}}</p>
     <a href="/blogs/{{this.slug}}" class="btn btn-primary">Go somewhere</a>
   </div>
+  <button value={{this.like}}>{{this.like}}</button>
 </div>
 {{/each}}
 

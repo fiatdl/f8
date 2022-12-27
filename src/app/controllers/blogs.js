@@ -5,8 +5,8 @@ class BlogsController {
       .find({})
       .then((blogs) => {
         blogs = blogs.map((item) => item.toObject());
-
-        res.render("Blogs", { blogs });
+          
+        res.render("Blogs", { blogs ,love:true});
       })
       .catch(next);
   }

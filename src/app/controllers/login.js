@@ -29,9 +29,10 @@ class LoginController {
               { name: req.body.username, password: req.body.password },
               "fiat"
             );
+            const love=data.toObject();
             res.cookie("token", token);
-            const newDr="/selfBlog";
-            res.redirect(newDr);
+            const newDr="selfBlog";
+            res.render(newDr,{love});
           } else {
             res.redirect("/login");
           }

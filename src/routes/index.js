@@ -5,17 +5,11 @@ const SelfRouter = require("./seflBlog");
 const Resister = require("./register");
 const Blogs = require("../app/model/product.model");
 const blogs = require("../app/controllers/blogs");
+const Home=require("./home");
 const UserRouter=require("./user");
 function Route(app) {
-  app.get("/", (req, res) => {
-    const q = Blogs.find()
-      .limit(2)
-      .then((data) => {
-        data = data.map((blogs) => blogs.toObject());
-        return res.render("home", { data });
-      })
-      .catch((err) => console.log(err));
-  });
+ 
+  app.use("/",Home);
   app.use("/register", Resister);
   app.use("/selfBlog", SelfRouter);
   app.use("/blogs", BlogsRouter);
