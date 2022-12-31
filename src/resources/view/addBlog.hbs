@@ -1,4 +1,5 @@
-<div class="container">
+
+<div class="container-sm">
   <form
     method="POST"
     class="row g-0 m-3"
@@ -39,11 +40,25 @@
         type="file"
         class="form-control"
         id="image"
+      onchange="PreviewImage();"
         rows="2"
         name="PostFile"
       />
+     <img id="uploadPreview" style="width: 200px; height: 200px;" />
     </div>
     <div class="col-auto text-center">
       <button class="btn btn-primary mb-2">Đăng</button>
     </div>
   </form></div>
+  <script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("image").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+
+</script>

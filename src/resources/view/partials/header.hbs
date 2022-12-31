@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-   =
-    <a class="navbar-brand" href="/"><i class="bi bi-house"></i>Fiat</a>
+   
+    <a class="navbar-brand link-light" href="/"><i class="bi bi-house"></i>Fiat</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/blogs"></a>
+          <a class="nav-link active link-light" aria-current="page" href="/blogs"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/create"><i class="bi bi-file-plus"></i></a>
+          <a class="nav-link link-light" href="/create"><i class="bi bi-file-plus"></i></a>
         </li>
         {{#if yes}}
-        <li class="nav-item dropdown m-5">
+        
           <a
-            class="nav-link dropdown-toggle"
-            href="#"
+            class="nav-link dropdown-toggle link-light"
+            href="/selfBlog"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -23,12 +23,13 @@
  <i class="bi bi-person-circle"></i>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/login">Login</a></li>
-            <li><a class="dropdown-item" href="/register">Register</a></li>
+            <li><a class="dropdown-item link-light" href="/logout">logout</a></li>
+           <li><a class="dropdown-item link-light" href="/selfBlog">Your Information</a></li>
            
           </ul>
-        </li>
+        
       {{/if}}
+     
       </ul>
       
     </div>

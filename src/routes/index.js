@@ -5,11 +5,13 @@ const SelfRouter = require("./seflBlog");
 const Resister = require("./register");
 const Blogs = require("../app/model/product.model");
 const blogs = require("../app/controllers/blogs");
+const LogOut=require("./logout");
 const Home=require("./home");
 const UserRouter=require("./user");
 function Route(app) {
  
   app.use("/",Home);
+  app.use("/logout",LogOut);
   app.use("/register", Resister);
   app.use("/selfBlog", SelfRouter);
   app.use("/blogs", BlogsRouter);

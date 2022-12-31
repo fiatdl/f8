@@ -7,15 +7,15 @@ class AddController {
     res.render("addBlog");
   }
   post(req, res, next) {
-    const love = req.cookies;
-console.log(love);
-    if (req.cookies["token"]!==null) {
-      var decoded = jwt.verify(love.token, "fiat");
+//     const love = req.cookies;
+// console.log(love);
+//     if (req.cookies["token"]!==null) {
+//       var decoded = jwt.verify(love.token, "fiat");
 
-      user
-        .updateOne({ username: decoded.username }, { age: 50 })
-        .then(() => console.log("ss"))
-        .catch(() => console.log("met"));
+//       user
+//         .updateOne({ username: decoded.username }, { age: 50 })
+//         .then(() => console.log("ss"))
+//         .catch(() => console.log("met"));
       // user
       //   .findOne({ username: decoded.username })
       //   .then((data) => console.log(data))
@@ -29,9 +29,7 @@ console.log(love);
       });
       blog.save();
       res.redirect("/blogs");
-    } else {
-      res.redirect("/login");
-    }
+   
   }
 }
 module.exports = new AddController();
