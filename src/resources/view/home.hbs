@@ -1,11 +1,18 @@
 <div class="home">
   {{#each data}}
-    <div class="home-card">
-      <h2 class="home-card-author">{{this.author}}</h2>
-      <h3 class="home-card-title">{{this.title}}</h3>
-      <img class="home-card-img" src="img/post/{{this.src}}" />
-      <p class="home-card-description">{{this.description}}
-      </p><button class="btn btn-primary">like</button></div>
+    <div class="card">
+      <div class="card-avatar">
+        <img src="img/user/{{this.authorAvatar}}"
+        <p class="card-author">{{this.author}}</p>
+      </div>
+    
+      <h3 class="card-description">{{this.description}}</h3>
+      <img class="card-img" src="img/post/{{this.src}}" />
+      {{!-- <p class="home-card-description">{{this.description}} --}}
+        <div class="card-bottom"></p><button class="card-btn-like">like</button>
+      <a class="card-link-comment">comment</a></div>
+      
+      </div>
 
   {{/each}}
 </div>

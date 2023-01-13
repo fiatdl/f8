@@ -9,7 +9,7 @@
 				<hr>
 			</div>
 			<!-- Form START -->
-			<form class="file-upload">
+			<form class="file-upload" method="POST" action="/update/{{user.id}}" enctype="multipart/form-data">
 				<div class="row mb-5 gx-5">
 					<!-- Contact detail -->
 					<div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -18,25 +18,25 @@
 								<h4 class="mb-4 mt-0">Contact detail</h4>
 								<!-- First Name -->
 								<div class="col-md-6">
-									<label class="form-label">Full Name*</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value={{user.realName    }}>
+									<label for="Fname" class="form-label">Full Name*</label>
+									<input type="text" id="Fname" name="fullName" class="form-control" placeholder="" aria-label="First name" value={{us.fullName    }}>
 								</div>
 								<!-- Last name -->
 								
 								<!-- Phone number -->
 								<div class="col-md-6">
 									<label class="form-label">Phone number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value={{user.phone}}>
+									<input type="text" name="phoneNumber" class="form-control" placeholder="" aria-label="Phone number" value={{us.phoneNumber}}>
 								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Age</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value={{user.age}}>
+									<input type="text" name="age" class="form-control" placeholder="" aria-label="age" value={{us.age}}>
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" value={{user.gmail}}>
+									<input type="email" name="email" class="form-control" id="inputEmail4" value={{us.email}}>
 								</div>
 								<!-- Skype -->
 								
@@ -51,12 +51,12 @@
 								<div class="text-center">
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
-										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+										<img id="uploadPreview"   class="img-thumbnail" src="img/user/{{us.avatar}}" />
 									</div>
 									<!-- Button -->
-									<input type="file" id="customFile" name="file" hidden="">
+									<input type="file" id="customFile" name="avatar"  onchange="PreviewImage();" hidden="" value={{us.avatar}}>
 									<label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-									<button type="button" class="btn btn-danger-soft">Remove</button>
+									
 									<!-- Content -->
 									<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
 								</div>
@@ -75,28 +75,43 @@
 								<!-- Old password -->
 								<div class="col-md-6">
 									<label for="exampleInputPassword1" class="form-label">Old password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword1">
+									<input type="password" name="oldPassword" class="form-control" id="exampleInputPassword1">
 								</div>
 								<!-- New password -->
 								<div class="col-md-6">
 									<label for="exampleInputPassword2" class="form-label">New password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword2">
+									<input type="password" name="newPassword" class="form-control" id="exampleInputPassword2">
 								</div>
 								<!-- Confirm password -->
 								<div class="col-md-12">
 									<label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword3">
+									<input type="password" name="newPasswordConfirm" class="form-control" id="exampleInputPassword3">
 								</div>
+								{{#if wrong}}
+									<p>{{text}}</p>
+								</div>
+								{{/if}}
 							</div>
 						</div>
 					</div>
 				</div> <!-- Row END -->
 				<!-- button -->
 				<div class="gap-3 d-md-flex justify-content-md-end text-center">
-					<button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-					<button type="button" class="btn btn-primary btn-lg">Update profile</button>
+					
+					<button  class="btn btn-primary btn-lg">Update profile</button>
 				</div>
 			</form> <!-- Form END -->
 		</div>
 	</div>
-	</div>
+	</div>  <script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("customFile").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+
+</script>

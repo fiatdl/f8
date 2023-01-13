@@ -12,13 +12,13 @@ class HomeController {
         .limit(10)
         .then((data) => {
           data = data.map((blogs) => blogs.toObject());
-
+          const user={avatar :req.cookies.avatar,name:req.cookies.username,password:req.cookies.password};
           const yes = req.cookies.token ? true : false;
-          return res.render("home", { data, yes });
+          return res.render("home", { data, yes,user });
         })
         .catch((err) => console.log(err));
     } else {
-      res.render("login");
+      res.render("homePage");
     }
   }
 }

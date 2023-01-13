@@ -5,8 +5,9 @@ class BlogsController {
       .find({})
       .then((blogs) => {
         blogs = blogs.map((item) => item.toObject());
-          
-        res.render("Blogs", { blogs ,love:true});
+        const user={avatar :req.cookies.avatar,name:req.cookies.username,password:req.cookies.password};
+        const yes = req.cookies.token ? true : false;
+        res.render("Blogs", { blogs, yes,user });
       })
       .catch(next);
   }

@@ -1,40 +1,4 @@
-{{! <form method="post"  action="/register/cc"  class="row g-3" enctype="multipart/form-data">
-  <div class="col-md-4">
-    <label for="fName" class="form-label">Full Name</label>
-    <input type="text" class="form-control" id="fName" name="realName" required>
-  </div>
-  <div class="col-md-4">
-    <label for="UserName" class="form-label">User Name</label>
-    <input type="text" class="form-control" id="UserName"  required>
-  </div>
-  <div class="col-md-4">
-    <label for="Gmail" class="form-label">Gmail</label>
-    <div class="input-group">
-      <span class="input-group-text" id="Gmail">@</span>
-      <input type="text" class="form-control" id="Gmail"  name="gmail" aria-describedby="inputGroupPrepend2" required>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <label for="password" class="form-label">Password</label>
-    <input type="text" class="form-control" id="password" name="password" required>
-  </div>
-  <div class="col-md-3">
-    <label for="age" class="form-label">Age</label>
-     <input id="age" type="range" name="age" min="6" max="120" value="0" oninput="this.form.amountInput.value=this.value" />
-    <input  type="number" name="amountInput" min="6" max="1 20" value="0"  />
-  
-   
-  </div>
-  <div class="col-md-3">
-    <label for="avatar" class="form-label">Choose Avatar</label>
-  <input id="avatar" type="file" name="imgFile">
-  </div>
-  
-  </div>
-  <div class="col-12">
-    <button class="btn btn-primary" >Register</button>
-  </div>
-</form> }}
+
 <section class="" style="background-color: #eee;">
   <div class="container h-70">
     <div class="row d-flex justify-content-center align-items-center h-80">
@@ -44,7 +8,7 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng Kí</p>
 
                 <form class="mx-1 mx-md-4" method="post" action="/register/cc">
 
@@ -56,9 +20,9 @@
                         id="fullName"
                         class="form-control"
                         name="fullName"
-                        value={{data.fullName}}
+                        {{!-- value={{data.fullName}} --}}
                       />
-                      <label class="form-label" for="fullName">Your Name</label>
+                      <label class="form-label" for="fullName">Họ và Tên</label>
                     </div>
                   </div>
 
@@ -70,9 +34,11 @@
                         id="email"
                         class="form-control"
                         name="email"
-                        value={{data.email}}
+                       {{#if emailExisted}}
+                       value="email existed"
+                       {{/if}}
                       />
-                      <label class="form-label" for="email">Your Email</label>
+                      <label class="form-label" for="email">gmail</label>
                     </div>
                   </div>
 
@@ -84,9 +50,9 @@
                         id="password"
                         class="form-control"
                         name="password"
-                        value={{data.password}}
+                        {{!-- value={{data.password}} --}}
                       />
-                      <label class="form-label" for="password">Password</label>
+                      <label class="form-label" for="password">Mật Khẩu</label>
                     </div>
                   </div>
 
@@ -132,7 +98,7 @@
               >
 
                 <img
-                  src="/img/post/pexels-jaime-reimer-2662116.jpg"
+                  src="/img/defaul/birt.jpg"
                   class="img-fluid"
                   alt="Sample image"
                 />
