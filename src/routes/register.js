@@ -4,5 +4,5 @@ const ResisterRouter=require("../app/controllers/register");
 
 
 router.get("/",ResisterRouter.index);
-router.post("/cc",ResisterRouter.load);
+router.post("/cc",ResisterRouter.checkEmailExist,ResisterRouter.load);
 module.exports= router;

@@ -32,7 +32,7 @@ class AddController {
           }
         }
       );
-      res.redirect("/blogs");
+      res.redirect("/private");
   }
  
 }

@@ -1,15 +1,20 @@
 const blogs = require("../model/product.model");
+const users=require("../model/user.model")
 class BlogsController {
   index(req, res, next) {
+    
     blogs
-      .find({})
+      .find({authorId:req.cookies.id})
       .then((blogs) => {
         blogs = blogs.map((item) => item.toObject());
         const user={avatar :req.cookies.avatar,name:req.cookies.username,password:req.cookies.password};
         const yes = req.cookies.token ? true : false;
-        res.render("Blogs", { blogs, yes,user });
+        res.render("private", { blogs, yes,user });
       })
       .catch(next);
+  }
+  delete(req,res,next){
+           res.end("djit mm ")
   }
 
   show(req, res, next) {

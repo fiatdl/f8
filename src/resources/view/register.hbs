@@ -1,15 +1,17 @@
 
-<section class="" style="background-color: #eee;">
-  <div class="container h-70">
-    <div class="row d-flex justify-content-center align-items-center h-80">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng Kí</p>
-
+{{#if announce}}<div aria-live="polite" aria-atomic="true" class="toast-container" >
+  <div class="toast"  id="alert">
+    <div class="toast-header toast-container-header">
+      <small>Thông Tin Đăng Kí Chưa Hợp Lê</small>
+      <button type="button" data-dismiss="toast" aria-label="Close">
+        X
+      </button>
+    </div>
+    <div class="toast-body toast-container-body">
+   <p>{{message}}</p>
+    </div>
+  </div>
+</div>{{/if}}
                 <form class="mx-1 mx-md-4" method="post" action="/register/cc">
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -34,9 +36,7 @@
                         id="email"
                         class="form-control"
                         name="email"
-                       {{#if emailExisted}}
-                       value="email existed"
-                       {{/if}}
+                       {{!-- value={{data.email}} --}}
                       />
                       <label class="form-label" for="email">gmail</label>
                     </div>
@@ -65,11 +65,7 @@
                         class="form-control"
                         name="passwordChecking"
                       />
-                      <label class="form-label" for="passwordChecking">{{#if
-                          wrong
-                        }}!!! Wrong password{{/if}}{{#else}}
-                          Repeat your password
-                        {{/else}}</label>
+                      <label class="form-label" for="passwordChecking">Nhập Lại Mật Khẩu</label>
                     </div>
                   </div>
 
@@ -77,7 +73,7 @@
                     <input
                       class="form-check-input me-2"
                       type="checkbox"
-                      value=""
+                      
                       id="termOfService"
                     />
                     <label class="form-check-label" for="termOfService">
@@ -92,22 +88,11 @@
 
                 </form>
 
-              </div>
-              <div
-                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
-              >
+        
+        <script>
+          $(document ).ready(function() {
+      $("#alert").toast({animation:true,delay:100000});
+      $("#alert").toast("show");
 
-                <img
-                  src="/img/defaul/birt.jpg"
-                  class="img-fluid"
-                  alt="Sample image"
-                />
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+});
+        </script>

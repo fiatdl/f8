@@ -30,9 +30,10 @@ class updateController {
     }
   }
   async update(req, res, next) {
-    try {
-      res.json(req.file);
+    try {if(req.file){
       res.cookie("avatar", req.file.originalname);
+    }
+
       user.findByIdAndUpdate(
         req.params.id,
         {
@@ -40,7 +41,7 @@ class updateController {
           email: req.body.email,
           phoneNumber: req.body.phoneNumber,
           fullName: req.body.fullName,
-          avatar: req.file.originalname,
+          avatar: req.cookies.avatar,
         },
         function (err, docs) {
           if (err) {

@@ -171,7 +171,9 @@
     background-color: #483939; }
   .nav-avatar {
     width: 70px;
-    border-radius: 12px;
+    position: relative;
+    top: -18px;
+    border-radius: 50%;
     height: 70px; }
   .nav-btnContainer {
     margin-left: 40%;
@@ -181,17 +183,6 @@
     width: auto; }
     .nav-btnContainer a:hover {
       background-color: #483939; }
-    .nav-btnContainer a::before {
-      content: "";
-      height: 30px;
-      width: 100px;
-      position: relative;
-      top: 0px;
-      background-color: red;
-      transition: 0.5;
-      z-index: 100; }
-    .nav-btnContainer a::after:hover {
-      width: 100%; }
     .nav-btnContainer a {
       padding: 0px 10px 0px 10px;
       margin-left: 20px;
@@ -199,14 +190,15 @@
       text-decoration: none; }
 
 .home {
-  background-color: red;
+  background-color: white;
   padding-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: auto;
-  margin: auto; }
+  margin: auto;
+  z-index: -1; }
 
 .card {
   width: 60%;
@@ -230,3 +222,86 @@
 #uploadPreview {
   width: 200px;
   height: 200px; }
+
+.home-page {
+  overflow: hidden;
+  height: 550px;
+  width: 100%; }
+
+.aspect-ratio-169 {
+  height: 500;
+  display: block;
+  position: relative;
+  padding-top: 56.25%;
+  transition: 0.3; }
+
+.aspect-ratio-169 img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+
+.director {
+  background-color: transparent;
+  position: absolute;
+  top: 200px;
+  width: 100%; }
+  .director button:first-child {
+    float: left; }
+  .director button:nth-child(2) {
+    float: right; }
+  .director button {
+    margin: 50px;
+    width: 100px;
+    height: 200px;
+    font-size: 70px;
+    display: flex;
+    border: none;
+    background-color: #ccc;
+    opacity: 0.3;
+    justify-items: center;
+    align-items: center;
+    padding: 20px; }
+    .director button i {
+      position: relative;
+      top: -10px; }
+  .director button:hover {
+    background-color: #CCC;
+    opacity: 1; }
+
+.dot-container {
+  width: 100%;
+  position: absolute;
+  top: 620px;
+  height: 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  flex-direction: row; }
+  .dot-container .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 8px; }
+    .dot-container .dot-active {
+      background-color: black; }
+
+.toast-container {
+  border: 1px solid #FFF;
+  position: relative;
+  left: 37%;
+  top: 200px; }
+  .toast-container-header button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border: none;
+    color: white; }
+  .toast-container-header button:hover {
+    opacity: 0.7; }

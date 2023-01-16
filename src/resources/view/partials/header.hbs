@@ -7,7 +7,7 @@
     </div>
     <div class="nav-private">
 
-      <a class="nav-link" aria-current="page" href="/blogs">Trang Cá Nhân</a>
+      <a class="nav-link" aria-current="page" href="/private">Trang Cá Nhân</a>
     </div>
 
     <div class="nav-btnContainer">
@@ -17,25 +17,18 @@
               class="bi bi-file-plus"
             ></i></a></div>
 
-        <a
-          class="nav-link dropdown-toggle link-light"
-          href="/selfBlog"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <img class="nav-avatar" src="img/user/{{user.avatar}}" />
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item link-dark" href="/home">Trang cá nhân
-              <i class="bi bi-door-open"></i></a></li>
-          <li><a class="dropdown-item link-dark" href="/update">Thông tin tài
-              khoản
-              <i class="bi bi-info-square-fill"></i></a></li>
-          <li><a class="dropdown-item link-dark" href="/logout">Đăng Xuất
-              <i class="bi bi-door-open"></i></a></li>
-        </ul>
-      {{else}}
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+   {{!-- <img class="nav-avatar" src="img/user/{{user.avatar}}" /> --}}
+  
+  sf</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/private">trang ca nhan</a></li>
+    <li><a class="dropdown-item" href="/update">chinh sua thong tin</a></li>
+    <li><a class="dropdown-item" href="/logout">dang xuat</a></li>
+  </ul>
+</div>
+      {{else}} 
         <a href="/login">Đăng nhập</a>
         <a href="/register">Đăng kí tài khoản</a>
       {{/if}}
