@@ -1,98 +1,68 @@
-
-{{#if announce}}<div aria-live="polite" aria-atomic="true" class="toast-container" >
-  <div class="toast"  id="alert">
-    <div class="toast-header toast-container-header">
-      <small>Thông Tin Đăng Kí Chưa Hợp Lê</small>
-      <button type="button" data-dismiss="toast" aria-label="Close">
-        X
-      </button>
+<div class="register">
+  {{#if announce}}<div
+      aria-live="polite"
+      aria-atomic="true"
+      class="toast-container"
+    >
+      <div class="toast" id="alert">
+        <div class="toast-header toast-container-header">
+          <small>Thông Tin Đăng Kí Chưa Hợp Lê</small>
+          <button type="button" data-dismiss="toast" aria-label="Close">
+            X
+          </button>
+        </div>
+        <div class="toast-body toast-container-body">
+          <p>{{message}}</p>
+        </div>
+      </div>
+    </div>{{/if}}
+  <div class="register-container">
+  <form class="register-form" method="post" action="/register/cc">
+  <p>Đăng Kí Tài Khoản</p>
+    <div class="register-textInput">
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        {{!-- value={{data.fullName}} --}}
+      />
+      <label for="fullName">Họ và Tên</label>
     </div>
-    <div class="toast-body toast-container-body">
-   <p>{{message}}</p>
+
+    <div class="register-textInput">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        {{!-- value={{data.email}} --}}
+      />
+      <label for="email">gmail</label>
+
     </div>
-  </div>
-</div>{{/if}}
-                <form class="mx-1 mx-md-4" method="post" action="/register/cc">
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input
-                        type="text"
-                        id="fullName"
-                        class="form-control"
-                        name="fullName"
-                        {{!-- value={{data.fullName}} --}}
-                      />
-                      <label class="form-label" for="fullName">Họ và Tên</label>
-                    </div>
-                  </div>
+    <div class="register-password">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        {{!-- value={{data.password}} --}}
+      />
+      <label class="form-label" for="password">Mật Khẩu</label>
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input
-                        type="email"
-                        id="email"
-                        class="form-control"
-                        name="email"
-                       {{!-- value={{data.email}} --}}
-                      />
-                      <label class="form-label" for="email">gmail</label>
-                    </div>
-                  </div>
+    </div>
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input
-                        type="password"
-                        id="password"
-                        class="form-control"
-                        name="password"
-                        {{!-- value={{data.password}} --}}
-                      />
-                      <label class="form-label" for="password">Mật Khẩu</label>
-                    </div>
-                  </div>
+    <div class="register-password">
+      <input type="password" id="passwordChecking" name="passwordChecking" />
+      <label for="passwordChecking">Nhập Lại Mật Khẩu</label>
+    </div>
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input
-                        type="password"
-                        id="passwordChecking"
-                        class="form-control"
-                        name="passwordChecking"
-                      />
-                      <label class="form-label" for="passwordChecking">Nhập Lại Mật Khẩu</label>
-                    </div>
-                  </div>
-
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input
-                      class="form-check-input me-2"
-                      type="checkbox"
-                      
-                      id="termOfService"
-                    />
-                    <label class="form-check-label" for="termOfService">
-                      I agree all statements in
-                      <a href="#!">Terms of service</a>
-                    </label>
-                  </div>
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-primary btn-lg">Register</button>
-                  </div>
-
-                </form>
-
-        
-        <script>
-          $(document ).ready(function() {
-      $("#alert").toast({animation:true,delay:100000});
-      $("#alert").toast("show");
-
-});
-        </script>
+   
+    <div class="register-btn">
+      <button>Register</button>
+    </div>
+  </form></div></div>
+<script>
+  $(document ).ready(function() {
+  $("#alert").toast({animation:true,delay:100000}); $("#alert").toast("show");
+  });
+</script>

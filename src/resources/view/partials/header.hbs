@@ -1,37 +1,47 @@
 <nav class="nav">
   <div class="nav-container">
     <div class="nav-home"> <a href="/"><i class="bi bi-house"></i>Fiat</a></div>
-
     <div class="nav-srcBar">
       <input type="search" placeholder="..." />
     </div>
-    <div class="nav-private">
-
+    {{! <div class="nav-private">
       <a class="nav-link" aria-current="page" href="/private">Trang Cá Nhân</a>
-    </div>
-
-    <div class="nav-btnContainer">
+    </div> }}
+   <div class="nav-create">
+        <a class="nav-link link-light" href="/create"><i
+            class="bi bi-file-plus"></i></a></div>
+    
       {{#if yes}}
-        <div class="nav-create">
-          <a class="nav-link link-light" href="/create"><i
-              class="bi bi-file-plus"
-            ></i></a></div>
+      <div class="nav-user"> 
+          <div class="nav-user-icon">   <img  src="img/user/{{user.avatar}}" />
+         
+          
+         </div>
+       
+           <ul class="nav-user-dropdown">
+            <li> <p>{{user.name}}</p></li>
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-   {{!-- <img class="nav-avatar" src="img/user/{{user.avatar}}" /> --}}
-  
-  sf</button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/private">trang ca nhan</a></li>
-    <li><a class="dropdown-item" href="/update">chinh sua thong tin</a></li>
-    <li><a class="dropdown-item" href="/logout">dang xuat</a></li>
-  </ul>
-</div>
-      {{else}} 
-        <a href="/login">Đăng nhập</a>
-        <a href="/register">Đăng kí tài khoản</a>
+          <li><a href="/private"><i class="bi bi-person"></i> Trang Cá Nhân</a></li>
+          <li><a  href="/update"><i class="bi bi-caret-up-square"></i> Thay Đổi Thông Tin</a></li>
+          <li><a  href="/logout"><i class="bi bi-box-arrow-right"></i> Đăng Xuất</a></li>
+           </ul>
+     </div>
+       
+     
+      {{else}} <div class="nav-btnContainer">
+      <a href="/login">Đăng nhập</a>
+      <a href="/register">Đăng kí tài khoản</a> </div>
       {{/if}}
-    </div>
+   
   </div>
 </nav>
+<script>
+   $( document ).ready(function() {
+   
+  $("#cc").click(function(){
+      $(".nav-user >ul").addClass("show");
+});
+ 
+});
+
+</script>
