@@ -6,6 +6,7 @@ class AddController {
   index(req, res, next) {
     const user={avatar :req.cookies.avatar,name:req.cookies.username,password:req.cookies.password};
     const yes = req.cookies.token ? true : false;
+  
     if(req.cookies.token){
     res.render("addBlog",{yes,user});
     }

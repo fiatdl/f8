@@ -8,16 +8,16 @@
   >
     <div class="mb-1">
       <label for="author" class="form-label">Tên tác giả</label>
-      <input
+      <textarea
         type="text"
       
         class="form-control"
         id="author"
-        placeholder="Author name"
+       
         name="author"
-        value={{user.name}} 
+       
         readonly
-      />
+      > {{user.name}} </textarea>
     </div>
     <div class="mb-1">
       <label for="title" class="form-label">Tiêu đề</label>
