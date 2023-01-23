@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Metrophobic&family=Pacifico&display=swap");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 * {
-  font-size: 14px; }
+  font-size: 14px;
+  margin: auto; }
 
 @media (max-width: 1987px) {
   .loginPage {
@@ -243,15 +245,15 @@
         border-radius: 5px;
         text-decoration: none; }
   .home {
-    background-color: white;
-    padding-top: 40px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: auto;
+    box-sizing: border-box;
     margin: auto;
-    z-index: -1; }
+    z-index: -1;
+    min-height: 1000px; }
     .home-loginToast {
       position: fixed;
       right: 0;
@@ -262,30 +264,57 @@
       z-index: 1;
       bottom: 100px; }
   .cardd {
+    position: relative;
+    background-color: #FFF;
     display: grid;
     width: 90%;
-    height: 400px;
-    padding: 30px;
-    margin-bottom: 1;
-    margin-bottom: 30px;
+    height: 520px;
+    padding: 10px;
+    overflow: hidden;
+    margin: 10px;
     border-bottom: 1px solid black;
-    grid-template-rows: 1fr 8 fr 1fr;
+    grid-template-rows: 1fr 7 fr 2fr;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: "title title img img img" "des des img img img" "author author img img img"; }
+    grid-template-areas: "title title cc cc cc" "des des img img img" "author author zz zz zz"; }
     .cardd-title {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
       grid-area: title;
+      font-family: "Anton", sans-serif;
       text-transform: uppercase;
       font-size: larger;
       font-weight: 600; }
     .cardd-author {
-      grid-area: author; }
+      grid-area: author;
+      font-family: "Metrophobic", sans-serif;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; }
+      .cardd-author button {
+        position: relative;
+        bottom: 10px;
+        color: red;
+        width: 30%;
+        margin: 5px; }
     .cardd-img {
       grid-area: img; }
       .cardd-img img {
         width: 100%;
         height: 100%; }
+      .cardd-img p {
+        font-family: "Metrophobic", sans-serif;
+        font-weight: 100;
+        font-size: smaller; }
     .cardd-description {
-      grid-area: des; }
+      height: 100%;
+      width: 100%;
+      grid-area: des;
+      font-family: "Pacifico", cursive;
+      overflow: scroll; }
   #uploadPreview {
     width: 200px;
     height: 200px; }

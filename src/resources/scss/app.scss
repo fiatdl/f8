@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-
+@import 'variable';
 * {
   font-size: 14px;
+  margin: auto;
 }
 
 @media (max-width:1987px) {
@@ -340,7 +341,7 @@
 
       }
 
-      &-icon {}
+     
     }
 
     &-user:hover &-user-dropdown {
@@ -379,16 +380,15 @@
 
   ///card
   .home {
-    background-color: white;
-    padding-top: 40px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: auto;
+   box-sizing: border-box;
     margin: auto;
     z-index: -1;
-
+min-height: 1000px;
     &-loginToast {
       position: fixed;
       right: 0;
@@ -405,27 +405,31 @@
   }
 
   .cardd {
-
+position: relative;
+background-color: #FFF;
     display: grid;
     width: 90%;
-    height: 400px;
-    padding: 30px;
-    margin-bottom: 1;
-    margin-bottom: 30px;
+    height: 520px;
+    padding: 10px;
+    overflow: hidden;
+    
+   margin: 10px;
     border-bottom: 1px solid black;
-    grid-template-rows: 1fr 8 fr 1fr;
+    grid-template-rows: 1fr 7 fr 2fr;
     grid-template-columns: repeat(5, 1fr);
     grid-template-areas:
-      "title title img img img"
+      "title title cc cc cc"
       "des des img img img"
-      "author author img img img"
+      "author author zz zz zz"
     ;
 
     &-title {
 
-
+height: 100%;
+width: 100%;
+overflow: hidden;
       grid-area: title;
-
+font-family: $title-font;
       text-transform: uppercase;
       font-size: larger;
       font-weight: 600;
@@ -434,25 +438,46 @@
     &-author {
 
       grid-area: author;
+      font-family: $author-font;
+      display: flex;
+      flex-direction: row;
+      justify-content:flex-start;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      button{
+        position: relative;
+        bottom: 10px;
+        color: red;
+        width: 30%;
+        margin: 5px;
+      }
     }
 
     &-img {
       grid-area: img;
 
+
       img {
         width: 100%;
         height: 100%;
       }
-
+  p{
+    font-family: $author-font;
+    font-weight: 100;
+    font-size: smaller;
+   
+  }
 
 
     }
 
     &-description {
-
+height: 100%;
+width: 100%;
       grid-area: des;
-
-
+    font-family: $text-font;
+  overflow: scroll;
     }
   }
 
