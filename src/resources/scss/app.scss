@@ -487,8 +487,8 @@
 
   .director {
     background-color: transparent;
-    position: fixed;
-    top: 40%;
+    position: absolute;
+    top: 25%;
     width: 100%;
     font-size: 1.25rem;
 
@@ -507,8 +507,9 @@
 
       display: flex;
       border: none;
-      background-color: transparent;
-      opacity: 0.3;
+      background-color: red;
+    
+      z-index: 3;
 
       justify-items: center;
       align-items: center;
@@ -517,7 +518,7 @@
       i {
         position: relative;
         top: -0.75rem;
-        font-size: 3em;
+        font-size: 5em;
 
       }
     }
