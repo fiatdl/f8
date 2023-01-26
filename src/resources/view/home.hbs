@@ -2,24 +2,16 @@
   {{#each data}}
   <div class="cardd">
     <div class="cardd-title">
-
       <p>{{this.title}}</p>
     </div>
-    <div class="cardd-description"><p>{{this.description}}</p></div>
-
     <div class="cardd-img"> <img src="img/post/{{this.src}}" />
     </div>
-
-
-    <div class="cardd-author">
+    <div class="cardd-description"><p>{{this.description}}</p></div>
+<div class="cardd-author">
    <p>{{this.author}}</p>
-    
-
     </div>
   </div>
-
   {{/each}}
-
   {{#if loginAnnounce}}
   <!-- Then put toasts within -->
   <div class="toast home-loginToast" role="alert" aria-live="assertive"

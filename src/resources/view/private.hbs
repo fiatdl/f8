@@ -2,19 +2,24 @@
 
 
 {{#each blogs}}
-<div class="card" style="width: 18rem;">
+  <div class="cardd">
+    <div class="cardd-title">
 
-  <img src="/img/post/{{this.src}}"" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{this.title}}</h5>
-    <p class="card-text">{{this.author}}</p>
-    <a href="/blogs/{{this.slug}}" class="btn btn-primary">Go somewhere</a><form method="delete" action="/private/delete">
- <button>Xóa Bài Viết </button>
+      <p>{{this.title}}</p>
+    </div>
+    <div class="cardd-description"><p>{{this.description}}</p></div>
 
-</form>
+    <div class="cardd-img"> <img src="img/post/{{this.src}}" />
+    </div>
+
+
+    <div class="cardd-author">
+   <p>{{this.author}}</p>
+    
+
+    </div>
   </div>
-  <button value={{this.like}}>{{this.like}}</button>
-</div>
+
 
 {{/each}}
 

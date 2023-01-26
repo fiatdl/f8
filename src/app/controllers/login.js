@@ -3,7 +3,7 @@ var jwt = require("jsonwebtoken");
 var Cookies = require("cookies-js");
 class LoginController {
   index(req, res, next) {
-    res.render("login");
+    res.render("login",{loginform:true});
   }
 
   async checkEmail(req, res, next) {
