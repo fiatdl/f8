@@ -585,3 +585,9 @@
     .cardd-author {
       height: auto;
       width: 100%; } }
+
+@media (max-width: 390px) {
+  .home-loginToast {
+    position: fixed;
+    right: 30%;
+    bottom: 40%; } }
